@@ -6,7 +6,7 @@ mostly for use with [xemu](https://xemu.app), free of any copyrighted content.
 
 Download
 --------
-If you're in a hurry, you can [download a pre-built image here](https://github.com/xemu/xemu-hdd-image/releases).
+If you're in a hurry, you can [download a pre-built image here](https://github.com/mborgerson/xemu-hdd-image/releases).
 
 Do It Yourself
 --------------
