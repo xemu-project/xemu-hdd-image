@@ -3,7 +3,6 @@
 #include <hal/video.h>
 #include <pbkit/pbkit.h>
 #include <hal/xbox.h>
-#include <stdio.h>
 
 void main(void)
 {
