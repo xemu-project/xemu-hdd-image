@@ -13,8 +13,9 @@ void main(void)
     for (;;) {
         HalReadSMCTrayState(&status, NULL);
         if (status == 16) { // if the drive status is 0x10, wait for a disc to be inserted.
-            debugPrint("Tray is Open. Waiting 5 seconds for a disc.\n", status, oldstatus);
-            Sleep(5000);
+            debugPrint("Tray is Open. Waiting for a disc.\n", status, oldstatus);
+            Sleep(1000);
+            debugClearScreen();
         }
         if (status == 96) { // we've got a disc, drive status is 0x60, lets try to launch default.xbe
             debugPrint("You've got games on this disc? Attempting to launch...\n", status, oldstatus);
