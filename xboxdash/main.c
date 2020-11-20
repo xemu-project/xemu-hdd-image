@@ -17,7 +17,7 @@ void dvdStat16(void)
 }
 void dvdStat96(void)
 {
-    debugPrint("\nWe've got a disc, attempting to launch!\n");
+    debugPrint("We've got a disc, attempting to launch!\n");
     debugPrint("\nIf this text begins to flicker after insterting a disc,\ndefault.xbe could not be found.\n");
     debugPrint("\nPlease check your disc for scratches and reinsert it.\nIf you're using XEMU, please do not use REDUMP style isos as\nthey are not supported yet.\n");
     debugPrint("\nCheck if your ISO was packed correctly and try again.\n");
