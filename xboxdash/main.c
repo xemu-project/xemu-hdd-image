@@ -1,21 +1,42 @@
-#include <xboxrt/debug.h>
-#include <pbkit/pbkit.h>
+#include <winapi/windows.h>
+#include <hal/debug.h>
+#include <hal/video.h>
 #include <hal/xbox.h>
-#include "stdio.h"
+#include <xboxkrnl/xboxkrnl.h>
+#include <nxdk/mount.h>
 
-void main(void)
+#define TrayStateHasMedia 0x60
+
+int main(void)
 {
-    int i;
+    XVideoSetMode(640, 480, 16, REFRESH_DEFAULT);
 
-    if (pb_init()) {
-        XSleep(2000);
-        XReboot();
-        return;
+    if (!nxMountDrive('A', "\\Device\\CdRom0\\")) {
+        debugPrint("Unable to mount CdRom!\n");
+        Sleep(1000);
+        return 1;
     }
 
-    pb_show_debug_screen();
-    debugPrint("Please insert an Xbox disc...\n");
-    while(1) XSleep(1000);
-    pb_kill();
-    XReboot();
+    debugPrint("Please insert a disc...\n");
+
+    ULONG state;
+
+    while (1) {
+        XVideoWaitForVBlank();
+
+        HalReadSMCTrayState(&state, NULL);
+
+        if (state == TrayStateHasMedia) {
+            if ((GetFileAttributesA("A:\\default.xbe")) != INVALID_FILE_ATTRIBUTES) {
+                debugPrint("Launching...\n");
+                Sleep(1000);
+                XLaunchXBE("A:\\default.xbe");
+            }
+        }
+
+        Sleep(1000);
+    }
+
+    return 1;
 }
+
