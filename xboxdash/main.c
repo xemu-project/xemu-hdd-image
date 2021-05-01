@@ -29,7 +29,7 @@ int main(void)
         if (state == TrayStateHasMedia) {
             if ((GetFileAttributesA("A:\\default.xbe")) != INVALID_FILE_ATTRIBUTES) {
                 debugPrint("Launching...\n");
-                XLaunchXBE("A:\\default.xbe");
+                XLaunchXBE("\\Device\\CdRom0\\default.xbe");
             }
         }
 
