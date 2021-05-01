@@ -18,6 +18,8 @@ int main(void)
     }
 
     debugPrint("Please insert a disc...\n");
+    debugPrint("\n");
+    debugPrint("Redump-Style Isos Not Supported\n");
 
     ULONG state;
 
