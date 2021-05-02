@@ -16,17 +16,28 @@ int main(void)
         Sleep(1000);
         return 1;
     }
-
+    
     debugPrint("Please insert a disc...\n");
     debugPrint("\n");
     debugPrint("Redump-Style Isos Not Supported\n");
 
+    
     ULONG state;
+
+    
 
     while (1) {
         XVideoWaitForVBlank();
 
         HalReadSMCTrayState(&state, NULL);
+        if (state == TrayStateHasMedia) {
+                if ((GetFileAttributesA("A:\\VIDEO_TS")) != INVALID_FILE_ATTRIBUTES) {
+                    debugPrint("Error! Redump-Style ISO detected, Please Eject This Disk.");
+                    Sleep(2000);
+                    return 1;
+                    main();
+                }
+            }
 
         if (state == TrayStateHasMedia) {
             if ((GetFileAttributesA("A:\\default.xbe")) != INVALID_FILE_ATTRIBUTES) {
@@ -34,6 +45,7 @@ int main(void)
                 XLaunchXBE("\\Device\\CdRom0\\default.xbe");
             }
         }
+
 
     }
 
