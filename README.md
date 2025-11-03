@@ -1,3 +1,8 @@
+> [!TIP]
+> Check out [fatxfs](https://github.com/mborgerson/fatx) to easily format, read, and write Xbox HDD drives and images!
+
+---
+
 Copyright-Free Xbox HDD Image
 =============================
 
