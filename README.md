@@ -1,5 +1,6 @@
 > [!TIP]
-> Check out [fatxfs](https://github.com/mborgerson/fatx) to easily format, read, and write Xbox HDD drives and images!
+> * Check out [fatxfs](https://github.com/mborgerson/fatx) to easily format, read, and write Xbox drives and images!
+> * Check out [xemu-dashboard](https://github.com/xemu-project/xemu-dashboard) for a lightweight dashboard distributed on formatted disk image usable with xemu!
 
 ---
 
